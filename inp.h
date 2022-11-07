@@ -68,4 +68,9 @@ typedef struct struct2_t {
 	char *aop_string[10];		/*- json_key:"aop_string_" -*/
 	unsigned int dp_string_count;
 	char **dp_string;			/*- json_key:"dp_string_" -*/
+
+	unsigned int intarray_count;
+	int intarray[MAX_INTS];					 /*- json_key:"intarray_" -*/
+	unsigned int strarray_count;
+	char strarray[MAX_STRS][201];		 /*- json_key:"strarray_" -*/
 } struct2_t;

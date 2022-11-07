@@ -1,3 +1,5 @@
+#define MAX_INTS 3
+#define MAX_STRS 4
 #include "inp.h"
 #include <stdio.h>
 #include <string.h>
@@ -147,6 +149,14 @@ int main()
 	s.dp_string_count = 2;
 	s.dp_string[0] = &s.str3[0][0];
 	s.dp_string[1] = &s.str3[1][0];
+
+	s.intarray_count = 2;
+	s.intarray[0] = -987;
+	s.intarray[1] = -789;
+
+	s.strarray_count = 2;
+	strcpy(s.strarray[0], s.str3[0]);
+	strcpy(s.strarray[1], s.str3[1]);
 	
 	jout_struct2_t(&post_temp_ptr,
 				   NULL,
@@ -160,4 +170,5 @@ int main()
 	free(s.dp_f);
 	free(s.dp_b);
 	free(s.dp_struct);
+	free(s.dp_string);
 }

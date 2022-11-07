@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 
+#define MAX_INTS 3
+#define MAX_STRS 4
+
 void jout_int(char ** const post_data_temp_ptr,
 			  const char key[],
 			  const int * const value,
