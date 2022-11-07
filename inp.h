@@ -72,5 +72,5 @@ typedef struct struct2_t {
 	unsigned int intarray_count;
 	int intarray[MAX_INTS];					 /*- json_key:"intarray_" -*/
 	unsigned int strarray_count;
-	char strarray[MAX_STRS][201];		 /*- json_key:"strarray_" -*/
+	char strarray[MAX_STRS][201];		 /*- json_key:"strarray_" -*/ /*Note: here maxlen of string is 200 */
 } struct2_t;
