@@ -20,7 +20,7 @@
 "format_specifier"				{return FORMAT_SPECIFIER_TOK;}
 "slice"							{return SLICE_TOK;}
 "%"("."[0-9]*)?[efg]			{yylval.string = strdup(yytext);return FORMAT_SPECIFIER_VALUE_TOK;}
-"MAX_"[a-zA-Z_][a-zA-Z_0-9]*|"MAX_"[a-zA-Z_][a-zA-Z_0-9]*"+1"|"MAX_"[a-zA-Z_][a-zA-Z_0-9]*" + 1" {yylval.number = -1; return NUMBER_TOK;}
+"MAX_"[a-zA-Z_][a-zA-Z_0-9]*	{yylval.number = -1; return NUMBER_TOK;}
 [a-zA-Z_][a-zA-Z_0-9]*"_count"	{return ID_COUNT_TOK;}
 [a-zA-Z_][a-zA-Z_0-9]*			{yylval.string = strdup(yytext);return ID_TOK;}
 "\/*-"							{return COMMENT_OPEN_TOK;};
