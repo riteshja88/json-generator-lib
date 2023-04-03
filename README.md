@@ -9,7 +9,7 @@ rm -f ./a.out;./run_project.sh  > inc.c && gcc -fsanitize=address -fsanitize-rec
 
 ```
 #perf test
-ritesh@ritesh-lappi:~/json-generator-lib$make test;for ((i=0;i<30;i++));do ./a.out |awk '{sum+=$1} END {print sum/NR}';done|awk '{sum+=$1} END {print sum/NR}'
+$ make test;for ((i=0;i<30;i++));do ./a.out |awk '{sum+=$1} END {print sum/NR}';done|awk '{sum+=$1} END {print sum/NR}'
 rm -f ./a.out;./run_project_test.sh  > inc_test.c && gcc -g -fsanitize=address -fsanitize-recover=address -fstack-protector-all -fstack-check --param asan-stack=0   -lasan -Wextra -Werror -c inc_test.c && gcc -g -fsanitize=address -fsanitize-recover=address -fstack-protector-all -fstack-check --param asan-stack=0  main_test.c inc_test.o -lasan && ./a.out |jq
 7568
 parse error: Invalid numeric literal at line 2, column 0
