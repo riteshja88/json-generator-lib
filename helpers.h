@@ -356,21 +356,29 @@ void jout_string(char ** const post_data_temp_ptr,
 		}
 		if('\0' == escape_char) {
 			if((*ptr) >= 0x20) {
-				(*post_data_temp_ptr) += sprintf(*post_data_temp_ptr,
-												 "%c",
-												 *ptr);
+				**post_data_temp_ptr = *ptr;
+				(*post_data_temp_ptr)++;
 			}
 			else {
-				(*post_data_temp_ptr) += sprintf(*post_data_temp_ptr,
-												 "\\u00%c%c",
-												 "0123456789abcdef"[(((*ptr)>>4) & 0xf)],
-												 "0123456789abcdef"[((*ptr) & 0xf)]);
+				**post_data_temp_ptr = '\\';
+				(*post_data_temp_ptr)++;
+				**post_data_temp_ptr = 'u';
+				(*post_data_temp_ptr)++;
+				**post_data_temp_ptr = '0';
+				(*post_data_temp_ptr)++;
+				**post_data_temp_ptr = '0';
+				(*post_data_temp_ptr)++;
+				**post_data_temp_ptr = "0123456789abcdef"[(((*ptr)>>4) & 0xf)];
+				(*post_data_temp_ptr)++;
+				**post_data_temp_ptr = "0123456789abcdef"[((*ptr) & 0xf)];
+				(*post_data_temp_ptr)++;
 			}
 		}
 		else{
-			(*post_data_temp_ptr) += sprintf(*post_data_temp_ptr,
-											 "\\%c",
-											 escape_char); // add escape charcter
+			**post_data_temp_ptr = '\\';
+			(*post_data_temp_ptr)++;
+			**post_data_temp_ptr = escape_char;
+			(*post_data_temp_ptr)++;
 		}
 		chars_parsed_count++;
 		ptr++;
