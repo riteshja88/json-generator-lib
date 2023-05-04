@@ -154,9 +154,9 @@ int main()
 	s.intarray[0] = -987;
 	s.intarray[1] = -789;
 
-	s.strarray_count = 2;
-	strcpy(s.strarray[0], s.str3[0]);
-	strcpy(s.strarray[1], s.str3[1]);
+	s.strarray111111111111111111111111111111111111111111111111111_count = 2;
+	strcpy(s.strarray111111111111111111111111111111111111111111111111111[0], s.str3[0]);
+	strcpy(s.strarray111111111111111111111111111111111111111111111111111[1], s.str3[1]);
 	
 	jout_struct2_t(&post_temp_ptr,
 				   NULL,
